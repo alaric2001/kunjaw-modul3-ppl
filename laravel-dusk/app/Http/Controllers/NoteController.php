@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Models\Note;
 
 class NoteController extends Controller
@@ -13,6 +14,7 @@ class NoteController extends Controller
     {
         $notes_data = Note::with('penulis')
                         ->where('penulis_id', auth()->id())
+                        ->orderBy('updated_at', 'desc')
                         ->get();
         return view('Notes/index', compact('notes_data'));
     }
@@ -25,27 +27,26 @@ class NoteController extends Controller
     
     public function store(Request $request)
     {
-        $this->validate($request, [
-                'title' => 'required',
-                'description' => 'required',
-            ]);
-            //
-            $post = Post::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'created_at' => Carbon::now()
-            ]);
+        // Validasi data
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
 
-            if($post){
-                return redirect()->route('post.index')->with(['success' => 'new post has been created']);
-            }else {
-                return redirect()
-                    ->back()
-                    ->withInput()
-                    ->with([
-                        'error' => 'Some problem occurred, please try again'
-                    ]);
-            }
+        // Simpan data
+        $create_note = Note::create([
+            'judul' => $validatedData['title'],
+            'isi' => $validatedData['description'],
+            'penulis_id' => Auth::id(),
+            'created_at' => Carbon::now()
+        ]);
+
+            if($create_note){
+                return redirect()->route('notes')->with(['success' => 'new note has been created']);
+            } return redirect()
+            ->back()
+            ->withInput()
+            ->with('error', 'Some problem occurred, please try again');
     }
 
     
@@ -59,9 +60,9 @@ class NoteController extends Controller
     
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
+        $Note = Note::findOrFail($id);
 
-        return view('post.edit', compact('post'));
+        return view('Note.edit', compact('Note'));
     }
 
     
@@ -72,23 +73,23 @@ class NoteController extends Controller
                 'description' => 'required',
             ]);
 
-            $post = Post::findOrFail($id);
+            $Note = Note::findOrFail($id);
 
-            $post->update([
+            $Note->update([
                 'title' => $request->title,
                 'description' => $request->description,
                 'updated_at' => Carbon::now()
             ]);
 
-            if ($post) {
+            if ($Note) {
                 return redirect()
-                    ->route('post.index')
+                    ->route('Note.index')
                     ->with([
-                        'success' => 'Post has been updated'
+                        'success' => 'Note has been updated'
                     ]);
             } else {
                 return redirect()
-                    ->route('post.index')
+                    ->route('Note.index')
                     ->withInput()
                     ->with([
                         'error' => 'Some problem has occured, please try again'
@@ -106,7 +107,7 @@ class NoteController extends Controller
             return redirect()
                 ->route('notes')
                 ->with([
-                    'success' => 'Post has been deleted'
+                    'success' => 'Note has been deleted'
                 ]);
         } else {
             return redirect()
