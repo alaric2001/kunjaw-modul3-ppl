@@ -60,36 +60,36 @@ class NoteController extends Controller
     
     public function edit($id)
     {
-        $Note = Note::findOrFail($id);
+        $note_edit = Note::findOrFail($id);
 
-        return view('Note.edit', compact('Note'));
+        return view('Notes.edit', compact('note_edit'));
     }
 
     
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-                'title' => 'required',
-                'description' => 'required',
-            ]);
+        // $this->validate($request, [
+        //         'title' => 'required',
+        //         'description' => 'required',
+        //     ]);
 
-            $Note = Note::findOrFail($id);
+            $update_note = Note::findOrFail($id);
 
-            $Note->update([
-                'title' => $request->title,
-                'description' => $request->description,
+            $update_note->update([
+                'judul' => $request->title,
+                'isi' => $request->description,
                 'updated_at' => Carbon::now()
             ]);
 
-            if ($Note) {
+            if ($update_note) {
                 return redirect()
-                    ->route('Note.index')
+                    ->route('notes')
                     ->with([
                         'success' => 'Note has been updated'
                     ]);
             } else {
                 return redirect()
-                    ->route('Note.index')
+                    ->route('notes')
                     ->withInput()
                     ->with([
                         'error' => 'Some problem has occured, please try again'

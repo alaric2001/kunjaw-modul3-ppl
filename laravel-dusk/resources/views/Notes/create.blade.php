@@ -47,9 +47,15 @@
                                     Description
                         </label>
                         {{-- <input type="text" name="title" class="" style= "border-radius: 0.375rem; border-color: #D1D5DB; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); width:100%;"/> --}}
-                        <textarea name="description" class="" style="border-radius: 0.375rem; border-color: #D1D5DB; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); width:100%;" @if($errors->has('description')) style="border-color: #ef4444;" @endif>
-                            {{ old('description') }}
-                        </textarea>
+                        <textarea name="description" class="" style="border-radius: 0.375rem;
+                            border: 1px solid #D1D5DB;
+                            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                            width: 100%;
+                            padding: 0.5rem;
+                            font-family: inherit;
+                            text-align: left;
+                            white-space: pre-wrap;
+                            @if($errors->has('description')) border-color: #ef4444; @endif">{{ old('description') }}</textarea>
 
                         @error('description')
                             <p style="color: #ef4444; font-size: 12px; margin-top: 5px;">{{ $message }}</p>
@@ -59,11 +65,7 @@
                         <button type="submit" class="btn-submit-note" style="">Create</button>
                     </div>
             </form>
-
-            
         </div>
     </div>
-
-    
 </div>
 @endsection
