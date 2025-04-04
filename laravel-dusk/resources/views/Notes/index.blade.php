@@ -23,7 +23,7 @@
                 <div style="display: flex; align-items: center; justify-content: space-between;">
                     <div >
                         {{-- <p class="bold font-lg">{{ $item->judul }}</p> --}}
-                        <a type="submit" href="{{ route('detail-note', $item->id )}}" class="bold font-lg id="{{$item->id}}">
+                        <a type="submit" href="{{ route('detail-note', $item->id )}}" dusk="detail-{{$item->id}}" class="bold font-lg id="{{$item->id}}">
                             {{ $item->judul }}
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                         <div style="display: flex; align-items: center; gap: 4px; ">
                             {{-- <i class="material-icons" style="color: rgb(255 203 0 1);">mode_edit</i> --}}
                             {{-- <i class="material-icons" style="color: rgb(242, 41, 41);">delete_forever</i> --}}
-                            <a type="submit" href="/edit-note-page/{{$item->id}}" id="{{$item->id}}" style="width: 60px; text-align:center; border-radius: 0.375rem; background-color: rgb(255 203 0); padding: 6px; color:white; font-size: 12px; font-weight:600;">
+                            <a type="submit" href="/edit-note-page/{{$item->id}}" dusk="edit-{{$item->id}}" style="width: 60px; text-align:center; border-radius: 0.375rem; background-color: rgb(255 203 0); padding: 6px; color:white; font-size: 12px; font-weight:600;">
                                 Edit
                             </a>
                             <form class="" action="/delete-note/{{ $item->id }}" method="POST" style="margin: 0">

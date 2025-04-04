@@ -12,7 +12,7 @@ class RegistTest extends DuskTestCase
      * A Dusk test Registrasi.
      * @group regis
      */
-    public function testExample(): void
+    public function testRegistration(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
@@ -20,7 +20,7 @@ class RegistTest extends DuskTestCase
                 ->clickLink('Register')
                 ->assertPathIs('/register')
                 ->type('name', 'Alaric')
-                ->type('email', 'an@mail.com')
+                ->type('email', 'al@mail.com')
                 ->type('password', '123')
                 ->type('password_confirmation', '123')
                 ->press('REGISTER')

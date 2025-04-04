@@ -12,7 +12,7 @@ class LoginTest extends DuskTestCase
      * A Dusk test Login.
      * @group login
      */
-    public function testExample(): void
+    public function testLogin(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')

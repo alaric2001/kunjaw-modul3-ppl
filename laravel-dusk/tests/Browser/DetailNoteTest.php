@@ -12,7 +12,7 @@ class DetailNoteTest extends DuskTestCase
      * A Dusk test example.
      * @group detail-note
      */
-    public function testExample(): void
+    public function testDetailNote(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
@@ -25,8 +25,8 @@ class DetailNoteTest extends DuskTestCase
                     ->assertPathIs('/dashboard')
                     ->clickLink('Notes')
                     ->assertPathIs('/notes')
-                    ->clickLink('Modi Distinctio Nihil')
-                    ->assertPathIs('/note/1');
+                    ->click('@detail-2') // @detail-(sesuaikan dengan id note yang ingin diubah) 
+                    ->assertPathIs('/note/2'); // /note/(sesuaikan dengan id note yang ingin diubah)
 
 
         });
