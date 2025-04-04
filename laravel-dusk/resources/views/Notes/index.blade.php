@@ -20,10 +20,12 @@
                             {{-- <i class="material-icons" style="color: rgb(255 203 0 1);">mode_edit</i> --}}
                             {{-- <i class="material-icons" style="color: rgb(242, 41, 41);">delete_forever</i> --}}
                             <a type="submit" href="{{ route('notes', $item->id )}}" id="{{$item->id}}" style="width: 60px; text-align:center; border-radius: 0.375rem; background-color: rgb(255 203 0); padding: 6px; color:white; font-size: 12px; font-weight:600;">Edit</a>
-                            <form class="" action="/" method="POST">
+                            <form class="" action="/delete-note/{{ $item->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" id="delete-{{$item->id}}" style="width: 60px; text-align:center; border-radius: 0.375rem; background-color: rgb(242, 41, 41); padding: 6px; color:white; font-size: 12px; font-weight:600;">Delete</button>
+                                <button type="submit" id="delete-{{$item->id}}" style="width: 60px; text-align:center; border-radius: 0.375rem; background-color: rgb(242, 41, 41); padding: 6px; color:white; font-size: 12px; font-weight:600;">
+                                    Delete
+                                </button>
                             </form>
                         </div>
                     </div>

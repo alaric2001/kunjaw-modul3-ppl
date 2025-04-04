@@ -99,18 +99,18 @@ class NoteController extends Controller
     
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $post->delete();
+        $note_delete = Note::findOrFail($id);
+        $note_delete->delete();
 
-        if ($post) {
+        if ($note_delete) {
             return redirect()
-                ->route('post.index')
+                ->route('notes')
                 ->with([
                     'success' => 'Post has been deleted'
                 ]);
         } else {
             return redirect()
-                ->route('post.index')
+                ->route('notes')
                 ->with([
                     'error' => 'Some problem has occurred, please try again'
                 ]);

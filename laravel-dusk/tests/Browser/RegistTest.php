@@ -20,7 +20,7 @@ class RegistTest extends DuskTestCase
                 ->clickLink('Register')
                 ->assertPathIs('/register')
                 ->type('name', 'Alaric')
-                ->type('email', 'an_0@mail.com')
+                ->type('email', 'an@mail.com')
                 ->type('password', '123')
                 ->type('password_confirmation', '123')
                 ->press('REGISTER')

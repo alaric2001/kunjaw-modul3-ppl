@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/notes', [NoteController::class, 'index'])->name('notes');
     Route::get('/note/{id}', [NoteController::class, 'show'])->name('detail-note');
+    Route::delete('/delete-note/{id}', [NoteController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';

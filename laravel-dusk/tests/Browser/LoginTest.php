@@ -19,7 +19,7 @@ class LoginTest extends DuskTestCase
                     ->assertSee('Enterprise Application Development')
                     ->clickLink('Log in')
                     ->assertPathIs('/login')
-                    ->type('email', 'al@mail.com')
+                    ->type('email', 'test@mail.com')
                     ->type('password', '123')
                     ->press('LOG IN')
                     ->assertPathIs('/dashboard');
