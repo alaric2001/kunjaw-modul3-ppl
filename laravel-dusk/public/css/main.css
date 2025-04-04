@@ -1,0 +1,26 @@
+.div-note{
+    margin: 1rem; 
+    border-radius: 0.5rem; 
+    background-color: #ffff;
+    /* background-color: #e3e1e1; */
+    padding:1rem;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+    
+}
+.bold{
+    font-weight: 700; /* Bold */
+}
+.semi-bold{
+    font-weight: 600; /* Bold */
+}
+
+.font-lg{
+    font-size: 30px;
+}
+
+.font-md{
+    font-size: 22px;
+}
