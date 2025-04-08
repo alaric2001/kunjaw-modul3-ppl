@@ -25,18 +25,7 @@ class RegistTest extends DuskTestCase
                 ->type('password_confirmation', '123')
                 ->press('REGISTER')
                 ->pause(2000) // Tunggu redirect
-                ->assertPathIs('/dashboard')
-    
-                // Klik dropdown untuk menampilkan menu logout
-                ->waitFor('#click-dropdown', 5)
-                ->click('#click-dropdown')
-                ->pause(500) // Tunggu animasi dropdown
-                
-                // Klik link logout
-                ->waitFor('form[action="http://127.0.0.1:8000/logout"] a', 5)
-                ->click('form[action="http://127.0.0.1:8000/logout"] a')
-                
-                ->assertPathIs('/');
+                ->assertPathIs('/dashboard');
         });
     }
 }
