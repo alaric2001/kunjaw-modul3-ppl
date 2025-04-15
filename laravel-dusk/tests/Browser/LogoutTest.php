@@ -25,13 +25,13 @@ class LogoutTest extends DuskTestCase
                     ->assertPathIs('/dashboard')
 
                     // Klik dropdown untuk menampilkan menu logout
-                    ->waitFor('#click-dropdown', 5)
+                    ->waitFor('#click-dropdown', 5) //Tunggu hingga elemen dengan ID click-dropdown muncul di halaman (maksimal 5 detik).
                     ->click('#click-dropdown')
                     ->pause(500) // Tunggu animasi dropdown
                     
                     // Klik link logout
-                    ->waitFor('form[action="http://127.0.0.1:8000/logout"] a', 5)
-                    ->click('form[action="http://127.0.0.1:8000/logout"] a')
+                    ->waitFor('form[action="http://127.0.0.1:8000/logout"] a', 5) // tunggu tombol logout muncul
+                    ->click('form[action="http://127.0.0.1:8000/logout"] a') // klik logout
                     
                     ->assertPathIs('/');
         });
