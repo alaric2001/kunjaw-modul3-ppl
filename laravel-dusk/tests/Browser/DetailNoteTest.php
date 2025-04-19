@@ -15,20 +15,18 @@ class DetailNoteTest extends DuskTestCase
     public function testDetailNote(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->assertSee('Enterprise Application Development')
-                    ->clickLink('Log in')
-                    ->assertPathIs('/login')
-                    ->type('email', 'test@mail.com')
-                    ->type('password', '123')
-                    ->press('LOG IN')
-                    ->assertPathIs('/dashboard')
-                    ->clickLink('Notes')
-                    ->assertPathIs('/notes')
-                    ->click('@detail-2')//@detail-(sesuaikan dengan id note yang ingin diubah) 
-                    ->assertPathIs('/note/88'); //(sesuaikan dengan id note yang ingin diubah)
-
-                    
+            $browser->visit('/') // Mengunjungi halaman utama (homepage)
+                    ->assertSee('Enterprise Application Development') // Memastikan teks "Enterprise Application Development" muncul di halaman
+                    ->clickLink('Log in') // Mengklik link "Log in"
+                    ->assertPathIs('/login') // Memastikan bahwa path URL saat ini adalah '/login'
+                    ->type('email', 'test@mail.com') // Mengisi field email dengan 'test@mail.com'
+                    ->type('password', '123') // Mengisi field password dengan '123'
+                    ->press('LOG IN') // Menekan tombol "LOG IN"
+                    ->assertPathIs('/dashboard') // Memastikan redirect berhasil ke halaman '/dashboard'
+                    ->clickLink('Notes') // Mengklik link "Notes"
+                    ->assertPathIs('/notes') // Memastikan berada di halaman '/notes'
+                    ->click('@detail-28')//@detail-(sesuaikan dengan id note yang ingin diubah) 
+                    ->assertPathIs('/note/28'); //(sesuaikan dengan id note yang ingin diubah)
         });
     }
 }

@@ -15,17 +15,17 @@ class RegistTest extends DuskTestCase
     public function testRegistration(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                ->assertSee('Enterprise Application Development')
-                ->clickLink('Register')
-                ->assertPathIs('/register')
-                ->type('name', 'Egi')
-                ->type('email', 'egi@mail.com')
-                ->type('password', '123')
-                ->type('password_confirmation', '123')
-                ->press('REGISTER')
-                ->pause(2000) // Tunggu redirect
-                ->assertPathIs('/dashboard');
+            $browser->visit('/') // Mengarahkan browser otomatis ke halaman beranda ('/')
+                ->assertSee('Enterprise Application Development') // Memastikan teks "Enterprise Application Development" muncul di halaman
+                ->clickLink('Register') // Mengklik tautan dengan teks "Register"
+                ->assertPathIs('/register') // Memastikan URL berubah ke '/register'
+                ->type('name', 'rasendriya') // Mengisi field 'name' dengan 'Egi'
+                ->type('email', 'rasen@mail.com') // Mengisi field 'email' dengan 'egi@mail.com'
+                ->type('password', '123') // Mengisi field 'password' dengan '123'
+                ->type('password_confirmation', '123') // Mengisi konfirmasi password dengan '123'
+                ->press('REGISTER') // Menekan tombol 'REGISTER' untuk submit form registrasi
+                ->pause(2000) // Menunggu selama 2 detik agar proses redirect selesai
+                ->assertPathIs('/dashboard'); // Memastikan pengguna diarahkan ke halaman '/dashboard' setelah registrasi berhasil
         });
     }
 }
