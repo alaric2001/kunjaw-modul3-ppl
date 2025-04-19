@@ -25,10 +25,10 @@ class DetailNoteTest extends DuskTestCase
                     ->assertPathIs('/dashboard')
                     ->clickLink('Notes')
                     ->assertPathIs('/notes')
-                    ->click('@detail-2') // @detail-(sesuaikan dengan id note yang ingin diubah) 
-                    ->assertPathIs('/note/2'); // /note/(sesuaikan dengan id note yang ingin diubah)
+                    ->click('@detail-2')//@detail-(sesuaikan dengan id note yang ingin diubah) 
+                    ->assertPathIs('/note/88'); //(sesuaikan dengan id note yang ingin diubah)
 
-
+                    
         });
     }
 }

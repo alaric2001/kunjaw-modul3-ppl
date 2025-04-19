@@ -25,7 +25,7 @@ class DeleteNoteTest extends DuskTestCase
                     ->assertPathIs('/dashboard')
                     ->clickLink('Notes')
                     ->assertPathIs('/notes')
-                    ->press('#delete-29') // #delete-(sesuaikan dengan id note yang ingin dihapus)
+                    ->press('#delete-2') // #delete-(sesuaikan dengan id note yang ingin dihapus)
                     ->assertPathIs('/notes');
         });
     }

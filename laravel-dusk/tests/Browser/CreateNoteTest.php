@@ -15,7 +15,7 @@ class CreateNoteTest extends DuskTestCase
     public function testCreateNote(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
+            $browser->visit('/') //Mengunjungi halaman sebelum login
                     ->assertSee('Enterprise Application Development')
                     ->clickLink('Log in')
                     ->assertPathIs('/login')

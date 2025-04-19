@@ -27,7 +27,7 @@ class EditNoteTest extends DuskTestCase
                     ->assertPathIs('/notes')
                     ->click('@edit-2') // @edit-(id disesuaikan dengan data note yang ingin diubah) 
                     ->assertPathIs('/edit-note-page/2') // /edit-note-page/(id disesuaikan dengan data note yang ingin diubah) 
-                    ->type('title', 'Assalamualaikum (edit)')
+                    ->type('title', 'Assalamualaikum   upp')
                     ->type('description', 'Waalaikumsalam warahmatullah (edit test)')
                     ->press("UPDATE")
                     ->assertPathIs('/notes');
