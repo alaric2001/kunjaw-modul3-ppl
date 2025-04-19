@@ -25,8 +25,8 @@ class EditNoteTest extends DuskTestCase
                     ->assertPathIs('/dashboard') // Memastikan pengguna diarahkan ke '/dashboard'
                     ->clickLink('Notes') // Mengklik link 'Notes'
                     ->assertPathIs('/notes') // Memastikan halaman saat ini adalah '/notes'
-                    ->click('@edit-28') // @edit-(id disesuaikan dengan data note yang ingin diubah) 
-                    ->assertPathIs('/edit-note-page/28') // /edit-note-page/(id disesuaikan dengan data note yang ingin diubah) 
+                    ->click('@edit-30') // @edit-(id disesuaikan dengan data note yang ingin diubah) 
+                    ->assertPathIs('/edit-note-page/30') // /edit-note-page/(id disesuaikan dengan data note yang ingin diubah) 
                     ->type('title', 'PPL Modul 3') // Mengisi kolom 'title' dengan teks yang telah diperbarui
                     ->type('description', 'Praktikum PPL Modul 3') // Mengisi kolom 'description' dengan teks baru
                     ->press("UPDATE") // Menekan tombol "UPDATE" untuk menyimpan perubahan catatan

@@ -25,8 +25,8 @@ class DetailNoteTest extends DuskTestCase
                     ->assertPathIs('/dashboard') // Memastikan redirect berhasil ke halaman '/dashboard'
                     ->clickLink('Notes') // Mengklik link "Notes"
                     ->assertPathIs('/notes') // Memastikan berada di halaman '/notes'
-                    ->click('@detail-28')//@detail-(sesuaikan dengan id note yang ingin diubah) 
-                    ->assertPathIs('/note/28'); //(sesuaikan dengan id note yang ingin diubah)
+                    ->click('@detail-30')//@detail-(sesuaikan dengan id note yang ingin diubah) 
+                    ->assertPathIs('/note/30'); //(sesuaikan dengan id note yang ingin diubah)
         });
     }
 }

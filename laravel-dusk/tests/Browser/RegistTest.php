@@ -19,8 +19,8 @@ class RegistTest extends DuskTestCase
                 ->assertSee('Enterprise Application Development') // Memastikan teks "Enterprise Application Development" muncul di halaman
                 ->clickLink('Register') // Mengklik tautan dengan teks "Register"
                 ->assertPathIs('/register') // Memastikan URL berubah ke '/register'
-                ->type('name', 'rasendriya') // Mengisi field 'name' dengan 'Egi'
-                ->type('email', 'rasen@mail.com') // Mengisi field 'email' dengan 'egi@mail.com'
+                ->type('name', 'aniko') // Mengisi field 'name' dengan 'Egi'
+                ->type('email', 'aniko@mail.com') // Mengisi field 'email' dengan 'egi@mail.com'
                 ->type('password', '123') // Mengisi field 'password' dengan '123'
                 ->type('password_confirmation', '123') // Mengisi konfirmasi password dengan '123'
                 ->press('REGISTER') // Menekan tombol 'REGISTER' untuk submit form registrasi
